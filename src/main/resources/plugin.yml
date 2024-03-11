@@ -1,0 +1,4 @@
+name: ArmorTrimRemover
+version: '${project.version}'
+main: me.sllly.armortrimremover.ArmorTrimRemover
+api-version: 1.20
