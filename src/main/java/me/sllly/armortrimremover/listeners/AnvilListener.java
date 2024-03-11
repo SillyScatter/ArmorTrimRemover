@@ -3,6 +3,7 @@ package me.sllly.armortrimremover.listeners;
 import me.sllly.armortrimremover.util.NbtApiUtils;
 import me.sllly.armortrimremover.util.Util;
 import org.bukkit.Material;
+import org.bukkit.Sound;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
@@ -56,6 +57,14 @@ public class AnvilListener implements Listener {
         if (event.getClickedInventory() instanceof AnvilInventory) {
             AnvilInventory anvilInventory = (AnvilInventory) event.getClickedInventory();
 
+            ItemStack slot1 = anvilInventory.getItem(1);
+            if (slot1 == null) {
+                return;
+            }
+            if (!NbtApiUtils.hasNBTKey(slot1, "armortrimremover")){
+                return;
+            }
+
             // Check if the slot is the result slot (slot 2 in an anvil)
             if (event.getSlot() == 2 && event.getSlotType() == InventoryType.SlotType.RESULT) {
                 // Prevent default behavior
@@ -72,6 +81,8 @@ public class AnvilListener implements Listener {
                     // Clear the input slots
                     anvilInventory.setItem(0, null);
                     anvilInventory.setItem(1, null);
+
+                    event.getWhoClicked().getWorld().playSound(event.getWhoClicked(), Sound.BLOCK_ANVIL_USE, 1f, 1f);
                 }
             }
         }
