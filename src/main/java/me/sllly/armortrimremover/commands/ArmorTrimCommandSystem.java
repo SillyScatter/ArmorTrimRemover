@@ -10,6 +10,8 @@ import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
+import java.util.UUID;
+
 public class ArmorTrimCommandSystem extends SYSCommandBranch {
     public ArmorTrimCommandSystem(String... names) {
         super(names);
@@ -26,6 +28,7 @@ public class ArmorTrimCommandSystem extends SYSCommandBranch {
                     }
                     ItemStack item = ArmorTrimRemover.itemConfig.trimRemoverItem.clone();
                     item = NbtApiUtils.applyNBTString(item, "armortrimremover", "true");
+                    item = NbtApiUtils.applyNBTString(item, "un-stacker", UUID.randomUUID().toString());
                     Util.giveItemsToPlayer(player, item, 1);
                 }));
 
