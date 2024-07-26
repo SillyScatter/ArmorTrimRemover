@@ -1,7 +1,6 @@
 package me.sllly.armortrimremover.listeners;
 
 import me.sllly.armortrimremover.util.NbtApiUtils;
-import me.sllly.armortrimremover.util.Util;
 import org.bukkit.Material;
 import org.bukkit.Sound;
 import org.bukkit.event.EventHandler;

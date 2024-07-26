@@ -26,6 +26,10 @@ public final class ArmorTrimRemover extends JavaPlugin {
 
     public void reloadConfigs(){
         itemConfig = new ItemConfig(getDataFolder(), "config");
-        itemConfig.initialize();
+        try {
+            itemConfig.initialize();
+        }catch (Exception  e){
+            e.printStackTrace();
+        }
     }
 }

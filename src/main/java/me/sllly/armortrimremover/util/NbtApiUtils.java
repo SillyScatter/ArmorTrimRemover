@@ -1,6 +1,6 @@
 package me.sllly.armortrimremover.util;
 
-import de.tr7zw.nbtapi.NBTItem;
+import com.octanepvp.nbtapi.NBTItem;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 
