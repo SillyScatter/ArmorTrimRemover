@@ -28,7 +28,7 @@ public class ArmorTrimCommandSystem extends SYSCommandBranch {
                     }
                     ItemStack item = ArmorTrimRemover.itemConfig.trimRemoverItem.clone();
                     item = NbtApiUtils.applyNBTString(item, "armortrimremover", "true");
-                    item = NbtApiUtils.applyNBTString(item, "un-stacker", UUID.randomUUID().toString());
+                    //item = NbtApiUtils.applyNBTString(item, "un-stacker", UUID.randomUUID().toString());
                     Util.giveItemsToPlayer(player, item, 1);
                 }));
 

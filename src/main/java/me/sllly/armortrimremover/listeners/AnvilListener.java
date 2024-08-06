@@ -63,6 +63,7 @@ public class AnvilListener implements Listener {
             if (!NbtApiUtils.hasNBTKey(slot1, "armortrimremover")){
                 return;
             }
+            int trimRemoverAmount = slot1.getAmount();
 
             // Check if the slot is the result slot (slot 2 in an anvil)
             if (event.getSlot() == 2 && event.getSlotType() == InventoryType.SlotType.RESULT) {
@@ -79,7 +80,12 @@ public class AnvilListener implements Listener {
 
                     // Clear the input slots
                     anvilInventory.setItem(0, null);
-                    anvilInventory.setItem(1, null);
+                    if (trimRemoverAmount  == 1){
+                        anvilInventory.setItem(1, null);
+                    }else {
+                        slot1.setAmount(trimRemoverAmount-1);
+                        anvilInventory.setItem(1, slot1);
+                    }
 
                     event.getWhoClicked().getWorld().playSound(event.getWhoClicked(), Sound.BLOCK_ANVIL_USE, 1f, 1f);
                 }

@@ -25,7 +25,7 @@ import java.util.regex.Pattern;
 
 public class Util {
 
-    public static final String LOG_PREFIX = "&8[&eBuildWands&8]"; //Only affects messages sent to console
+    public static final String LOG_PREFIX = "&8[&eArmorTrimRemover&8]"; //Only affects messages sent to console
 
     public static void sendMessage(CommandSender to, String message){
         to.sendMessage(colorize(message));
